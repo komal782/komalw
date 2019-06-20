@@ -98,7 +98,7 @@
 }
 .me-offset {
     position: relative;
-    margin: -270px 0 0 455px;
+    margin: -270px 0 0 15%;
     display: inline-block;
 }
 .me-img {
@@ -118,7 +118,7 @@
 
 .about-title {
     position: absolute;
-    margin-top: 28%;
+    margin-top: 31%;
     margin-left: 48%;
 }
 .about-title h2 {
@@ -129,7 +129,7 @@
 .about-p {
     position: absolute;
     width: 40%;
-    margin-top: 34%;
+    margin-top: 40%;
     color: #5C5C5C;
     margin-left: 48%;
     font-size: 23px;
@@ -156,7 +156,7 @@
 .project a {
     display: block;
     margin-top: 20%;
-    margin-left: 40%;
+    margin-left: 30%;
     font-size: 40px;
 }
 .project a span {
@@ -185,7 +185,7 @@
     position: absolute;
     color: white;
     margin-top: 25%;
-    margin-left: 42%;
+    margin-left: 39%;
     text-align: center;
 }
 .contact-title h2 {
