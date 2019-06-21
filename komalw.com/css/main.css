@@ -2,7 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 .container {
-    max-width: 95% !important;
+    max-width: 1216px !important;
 }
 .header-offset {
     position: relative;
@@ -168,8 +168,8 @@ body {
     position: absolute;
     color: white;
     text-align: center;
-    width: 97%;
-    margin-top: 30%;
+    width: 100%;
+    margin-top: -37%;
 }
 .contact-title h2 {
     font-size: 45px;
