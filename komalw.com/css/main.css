@@ -148,12 +148,15 @@ body {
 }
 .project a {
     display: block;
-    margin-top: 20%;
-    margin-left: 33%;
+    margin-top: 15%;
+    margin-left: 17%;
     font-size: 35px;
+    color: white;
+    z-index: 2;
 }
-.project a span {
-    font-size: 18px;
+.project p {
+    font-size: 14px;
+    padding: 0 65px;
 }
 .contact-img {
     height: 650px;
