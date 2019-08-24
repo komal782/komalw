@@ -128,7 +128,7 @@ body {
     padding-top: 18px;
 }
 #about {
-    margin-bottom: 8%;
+    margin-bottom: 25%;
 }
 .project {
     background-color: #FCBD00;
@@ -146,7 +146,7 @@ body {
     left: 36px;
     top: 25px;
 }
-.project a {
+.project h1 {
     display: block;
     margin-top: 15%;
     margin-left: 17%;
