@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheett.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=Ribeye+Marrow" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<style>
+    #canvas-wrap { position: absolute; }
+    #overlay     { position:absolute; width:730px; height:1200px}
+</style>
+<body onload="showimg()" id = "test">
+    <div class="container" style="margin-top: 3%;">
+        <div class="row">
+            <div class="one-third column"> <img id="dimg" src="people/opt1notalk.png" alt="patient" style="display: block; margin: 0 auto; height: 115px;"> <h6 style="text-align: center;">Doctor</h6></div>
+            <div class="one-third column"> <h2 class="section-heading">Text for the Comic</h2> </div>
+            <div class="one-third column"> <img id="pimg" src="people/male-black.png" alt="patient" style="display: block; margin: 0 auto; height: 115px;"><h6 style="text-align: center;">Patient</h6></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div>
+                <p style="text-align: center;">*** <span style="font-weight: bold;">Keywords you can use currently: </span>nausea, bleeding, blistering, headaches, fatigue, insomnia, dialysis, family, relationships, catheter, aches and work (exactly how they're spelled here)***</p>
+            </div>
+        </div>
+    </div>
+    <form action="#" method="GET" id="myForm">
+        <div class="container">
+        <div class="row">
+            <div class="six columns">
+                <label for="ttle">Comic Title</label>
+                <input name="title" type="email" class="u-full-width" placeholder="title your comic" id="ttle">
+            </div>
+        </div>
+        <label for="ta">How do you take the medicine?</label>
+        <textarea name="first" class="u-full-width" id="ta" style="height: 170px; font-family: 'Abel', sans-serif";></textarea>                
+        
+        <label for="tas">What are the side effects?</label>
+        <textarea name="second" class="u-full-width" id="tas" style="height: 170px; font-family: 'Abel', sans-serif";></textarea>         
+        
+        <label for="tam">Anything else? (Leave this blank if there isn't anything)</label>
+        <div class="row">
+                <div class="six columns">
+                    <input name="other" type="email" class="u-full-width" placeholder="title" id="anyelse">
+                </div>
+            </div>
+        <textarea name="third" class="u-full-width" id="tam" style="height: 170px; font-family: 'Abel', sans-serif";></textarea>  
+        </div>
+    </form>
+
+    <div class="container">
+    <div class="row">
+        
+        <div class="four columns">
+            <div class="one-half column"><button type="button" onclick="addComic()">add</button></div>
+            <div class="one-half column"><button id="_save">Save</button></div>
+        </div>
+        <div class="four columns">
+            <div class="one-half column"><button id="_load">Load</button></div>
+            <div  class="one-half column"><button type="button" onclick="delText()">clear</button></div>
+        </div>
+        <div  class="four columns">
+            <div class="one-half column"><button type="button" onclick="genPDF()" id="download">download</button></div>
+            <div class="one-half column" style="width: 98px; margin-left: 32px;"><a class="button button-primary" href = "titlepage.html" target = "_self" > BACK </a></div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Trigger/Open The Modal -->
+    <a id="myBtn" class="float"><i class="fa fa-question fa-3x my-float"></i></a>
+    <div class="label-container">
+        <div class="label-text">Need help? Click me!</div>
+        <i class="fa fa-play label-arrow"></i>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <div style="text-align: center;">
+            <h1 style="text-align: center;">TUTORIAL</h1>
+            <p style="text-align: center;">This is a PROTOTYPE there are still some parts not yet implemented</p>
+            <a href="#basics">The Basics<br/></a>
+            <a href="#dont">The Do Nots<br/></a>
+            <a href="#saveload">Save and Load<br/></a>
+            <h3 id="basics">The Basics</h3>
+            <p style="text-align: center;">Here is how you can create your own comic easily</p>
+            <p>If you want the doctor to speak, start your sentence with "-" <br /> If you want the patient to speak, start your sentence with "="<br /></p> 
+            <img src="tutorial/patdoc.gif" alt="output1" style="display: block; margin: 0 auto; height: 240px;">
+            <p><br />Creating a new panel is easy, just add a double space (press return twice) and continue your dialogue</p>
+            <img src="tutorial/doublespace.gif" alt="output1" style="display: block; margin: 0 auto; height: 240px;">
+            <p> <br/>If you want to get your point across without a character dialogue box, type it in normally. (This can trigger keywords)</p>
+            <img src="tutorial/keyword.gif" alt="output1" style="display: block; margin: 0 auto; height: 240px;">
+            <h3 id="dont">The Do Nots</h3>
+            <p><br/>Currently you <span style="font-weight: bold; color: darkred;">cannot</span> have narration and a person talking in the same panel. eg:</p>
+            <img src="tutorial/wrong1.png" alt="output1" style="display: block; margin: 0 auto;">
+            <p><br/>You also <span style="font-weight: bold; color: darkred;">cannot</span> have more than one dialogue box per person in the same panel. eg:</p>
+            <img src="tutorial/wrong2.png" alt="output1" style="display: block; margin: 0 auto;">
+            <p>When you have everything typed out you can click add to create the comic</p>
+            <img src="tutorial/addbutton.png" alt="output1" style="display: block; margin: 0 auto;height: 60px;">
+            <h3 id="saveload"><br/>Save and Load</h3>
+            <p style="text-align: center;">To save your comic, add a title to your comic and click save</p>
+            <img src="tutorial/savecomic.gif" alt="output1" style="display: block; margin: 0 auto; height: 240px;">
+            <p><br/>To load a previous comic to edit it, click load and select the comic you want. (Saved by the comic title)</p>
+            <img src="tutorial/loadcomic.gif" alt="output1" style="display: block; margin: 0 auto; height: 240px;">
+            <p>....</p>
+        </div>   
+        </div>
+    </div>
+
+
+
+    <div id="savedlist" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+        <div style="text-align: center;">
+            <p>THIS is where ur saved ones will be</p>
+            <div id="saves"></div>
+            <button class="button button-primary" onclick="closemodal()">Close</button>
+            <button class="button button-primary" onclick="deletesaved()">Delete</button>
+        </div>   
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-top: 5%">
+        <div id="canvas-wrap" class="canvas-wrap" style="display: block; margin:0 5%;">
+        <canvas width="750" height="10000" id="canvas"></canvas>
+        <div id="overlay" style="top:0px; left:0px"> </div>
+    </div>
+</body>
+<script type="text/javascript" src="script1.js"></script>
+<script type="text/javascript" src="modal.js"></script>
+    
+</html>

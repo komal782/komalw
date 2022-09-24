@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheett.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=Ribeye+Marrow" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<style>
+    #canvas-wrap { position: absolute; }
+    #overlay     { position:absolute; width:730px; height:1200px}
+</style>
+<body id = "test" onload="titlePage(), docimg();">
+    <div class="container" id="title">
+        <h2 class="no-span section-heading" style="font-family: 'Ribeye Marrow">Doctor Wants a Comic</h2>
+        <div class="row" style ="margin-top: 5%; margin-bottom: 5%;">
+            <div id="title-doc" class="four columns"> <img id="docimg" src="people/opt1notalk.png" alt="pic of doctor" style="display: block; margin: 0 auto;"><h6 style="text-align: center;">Doctor Preview</h6></div>
+            <div class="four columns">
+                    <label for="doctor">Doctor's name?</label>
+                    <select class="u-full-width" id="doctor" onchange="docimg()">
+                      <option value="opt1" selected>Doctor One</option>
+                      <option value="opt2">Doctor Two</option>
+                      <option value="opt3">Doctor Three</option>
+                    </select>
+
+                    <label for="gender">Patients Gender?</label>
+                    <select class="u-full-width" id="gender" onchange="titlePage()">
+                      <option value="male" selected>Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+
+                    <label for="hair">Patients Hair Colour?</label>
+                    <select class="u-full-width" id="hair" onchange="titlePage()">
+                      <option value="black" selected>Black</option>
+                      <option value="brown">Brown</option>
+                      <option value="blonde">Blonde</option>
+                    </select>
+            </div>
+            <div id="title-patient" class="four columns"> <img id="patimg" src="people/male-black.png" alt="patient" style="display: block; margin: 0 auto;"><h6 style="text-align: center;">Patient Preview</h6></div>
+        </div>
+        <a class="button button-primary" href = "comic.html" target = "_self" style="display: table; margin: 0 auto;" onclick="saveValues()"> next </a>
+    </div>
+
+</div>
+
+    <!-- Trigger/Open The Modal -->
+    <a id="myBtn" class="float"><i class="fa fa-question fa-3x my-float"></i></a>
+    <div class="label-container">
+        <div class="label-text">Need help? Click me!</div>
+        <i class="fa fa-play label-arrow"></i>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <div style="text-align: center;">
+            <h1 style="text-align: center;">TUTORIAL</h1>
+            <p style="text-align: center;">This is a PROTOTYPE there are still some parts not yet implemented</p>
+            <h3>The Basics</h3>
+            <p style="text-align: center;">Here is how you can create your own comic easily</p>
+            <p>Start by customizing the doctor and patient avatar</p>
+            <p>Select the Doctors name, and then select patient attributes</p>
+            <img src="tutorial/titlepg.gif" alt="output1" style="display: block; margin: 0 auto; height: 240px;">
+            <p>When you're done, click next to create your comic!</p>
+        </div>   
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="script1.js"></script>
+<script type="text/javascript" src="modal.js"></script>
+
+</html>

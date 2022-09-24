@@ -1,0 +1,251 @@
+body {
+	background: #FFFFFF;
+	font-family: 'Abel', sans-serif;
+}
+
+.canvas-wrap {
+	margin: 10px;
+}
+
+textarea {
+	background-color: #FFFFFF;
+	border: solid 0.5px #1C5D99;
+	font-size: 14px;
+}
+
+.for {
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+img {
+	height: 175px;
+}
+
+button {
+
+	border-color: #1C5D99;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+	font-size: 16px;
+	border-radius: 15px;
+}
+button:hover {
+	color: #639FAB;
+	border-color: #639FAB;
+}
+
+select {
+	color: #1C5D99;
+	cursor: pointer;
+	background: #FFFFFF; 
+	text-align: center;
+	border-radius: 10px;
+}
+
+select:hover {
+	color: #639FAB;
+	border-color: #639FAB;
+}
+
+h2 {
+	font: 33px sans-serif;
+	margin-top: 30px;
+	text-align: center;
+	text-transform: uppercase;
+  }
+
+  h2.no-span {
+	display: table;
+	white-space: nowrap;
+  }
+  h2.no-span:before,
+  h2.no-span:after {
+	border-top: 3px solid #639FAB;
+	content: '';
+	display: table-cell;
+	position: relative;
+	top: 0.5em;
+	width: 45%;
+  }
+  h2.no-span:before {
+	right: 1.5%;
+  }
+  h2.no-span:after {
+	left: 1.5%;
+  }
+
+
+div.bubble {
+	z-index: 1;
+	background: white;
+	display: inline-block;
+	border: 1px solid black;
+	border-radius: 4px;
+	color: black;
+	padding: 5px 10px;
+	margin: 4px 4px;
+	line-height: 130%;
+	max-width: 200px;
+	font-size: 13px;
+}
+div.bubble.left-top:before, div.bubble.top:before {
+	content: "";
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-left: 1px solid black;
+	border-left-color: inherit;
+	border-top: 1px solid black;
+	border-top-color: inherit;
+	background-color: inherit;
+}
+div.bubble.left-bottom:after, div.bubble.bottom:after {
+	content: "";
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-left: 1px solid black;
+	border-left-color: inherit;
+	border-top: 1px solid black;
+	border-top-color: inherit;
+	background-color: inherit;
+}
+div.bubble.left-top:before {
+	margin: 1px 0 0 -15px;
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+div.bubble.left-bottom:after {
+	display:block;
+	margin: 2px 0 0 50%;
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+div.bubble.top:before {
+	margin: -10px 0 0 0px;
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+div.bubble.bottom:after {
+	display: block;
+	margin: 2px 0 0 0px;
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+
+.narr {
+	z-index: 1;
+	background: white;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 30px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	overflow-y: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+	width: 80%;
+	overflow: auto;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:30px;
+	right:35px;
+	background-color:#639FAB;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+.float:hover{
+	color: black; 
+}
+
+.my-float{
+	margin-top:7px;
+}
+
+.label-container{
+	position:fixed;
+	bottom:37px;
+	right:90px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-text{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+.label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#333;
+	opacity:0.5;
+}
+
+a.float + div.label-container {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s ease;
+  }
+  
+a.float:hover + div.label-container{
+	z-index: 2;
+	visibility: visible;
+	opacity: 1;
+  }
+
+.mystyle:active{
+	border-color: red;
+}
