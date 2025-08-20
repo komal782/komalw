@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotainment</title>
+    <!-- Third party links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/scrips.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="map-dropper"></div>
+        <div class="container">
+            <h1>Hello <span id="username"></span></h1>
+            <div class="driving-info">
+                <div class="statespeed">
+                    <p class="state">PRN<span>D</span></p>
+                    <div class="speed-limit">
+                        <p>Speed Limit</p>
+                        <span>60</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><span class="visually-hidden">Home</span><a href="#"><i class="fa-solid fa-house"></i></a></li>
+                    <li><span class="visually-hidden">Apps</span><a href="#"><i class="fa-solid fa-shapes"></i></a></li>
+                    <li><span class="visually-hidden">Call</span><a href="#"><i class="fa-solid fa-phone"></i></a></li>
+                    <li><span class="visually-hidden">Settings</span><a href="#"><i class="fa-solid fa-gear"></i></a></li>
+                </ul>
+            </div>
+            <div class="controls-edit">
+                <div class="map-center"><i class="fa-solid fa-location-crosshairs"></i></div>
+                <div class="edit-btn"><span><a href="#">Edit</a></span></div>
+            </div>
+            <div class="controls">
+                <div class="box big">
+                    <p>Climate</p>
+                    <div>
+                        <button onclick="sub('temperature')"><i class="fa-solid fa-minus sub"></i></button>
+                        <span id="temperature" class="big-text">25</span>
+                        <button onclick="add('temperature')"><i class="fa-solid fa-plus add"></i></button>
+                    </div>
+                    <span style="margin-bottom: .5rem;" class="small-text">&deg; C</span>
+                    <span class="grey-highlight">Internal</span>
+                </div>
+                <div class="box big">
+                    <p>Wind Speed</p>
+                    <div>
+                        <i class="fa-solid fa-fan fan-icon"></i>
+                        <button onclick="sub('windSpeed')"><i class="fa-solid fa-minus sub"></i></button>
+                        <span id="windSpeed" class="big-text">36</span>
+                        <button onclick="add('windSpeed')"><i class="fa-solid fa-plus add"></i></button>
+                    </div>
+                    <span class="small-text">%</span>
+                </div>
+                <div class="box">
+                    <p>Driving</p>
+                    <span class="big-text">65</span>
+                    <span class="small-text">km/h</span>
+                </div>
+                <div class="box">
+                    <p>Doors</p>
+                    <i style="margin-top: 1rem;" class="fa-solid fa-lock"></i>
+                    <span class="small-text">Locked</span>
+                </div>
+            </div>
+
+            <div class="music">
+                <div class="line"></div>
+
+                <div class="details">
+                    <div class="track-art"></div>
+                    <div class="track-name"></div>
+                    <div class="track-artist"></div>
+                </div>
+                
+                <div class="buttons">
+                    <div class="prev-track" onclick="prevTrack()">
+                        <i class="fa fa-step-backward fa-2x"></i>
+                    </div>
+                    <div class="playpause-track" onclick="playpauseTrack()">
+                        <i class="fa fa-play-circle fa-5x"></i>
+                    </div>
+                    <div class="next-track" onclick="nextTrack()">
+                        <i class="fa fa-step-forward fa-2x"></i>
+                    </div>
+                </div>
+                
+                <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                    <div class="total-duration"></div>
+                </div>
+                
+                <div class="slider_container">
+                    <i class="fa fa-volume-up"></i>
+                    <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                </div>
+
+                <div class="up-next">
+                    <p>Up Next</p>
+                    <div class="next-box">
+                        <div class="next-track-art"></div>
+                        <div>
+                            <div class="next-track-name">Bad Guy</div>
+                            <div class="next-track-artist">Billie Eilish</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
